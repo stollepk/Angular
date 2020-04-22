@@ -1,0 +1,55 @@
+<div class="home-content">
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4">
+      <img src="assets/img/brand.png" alt="Company logo" class="home-img"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4">
+      <h2 class="home-title align-self-center">{{title}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group text-left">
+          <label>Email</label>
+          <input type="text"
+                 formControlName="email"
+                 placeholder="Email"
+                 class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
+          <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+            <div *ngIf="form.email.errors.required">
+              Email is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group text-left">
+          <label>Password</label>
+          <input type="password"
+                 formControlName="password"
+                 placeholder="Password"
+                 class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
+          <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+            <div *ngIf="form.password.errors.required">
+              Password is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group text-left">
+          <button [disabled]="loading" class="btn btn-secondary">Login</button>
+          <span class="m-4 text-secondary">Or</span>
+          <span class="text-light">
+            <a (click)='goToCreate()' class="text-muted cursor-pointer">
+              <u>Register Account</u>
+            </a>
+          </span>
+        </div>
+        <div *ngIf="error" class="text-danger">{{error}}</div>
+      </form>
+    </div>
+  </div>
+  <app-loader [loading]="loading" > </app-loader>
+</div>

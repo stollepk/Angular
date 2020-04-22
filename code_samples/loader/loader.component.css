@@ -1,0 +1,17 @@
+.overlay {
+  position: fixed;
+  z-index: 9999 !important;
+  background-color: rgba(26, 116, 190, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.loader {
+  height: 90px;
+  width:auto;
+}
+
